@@ -47,9 +47,9 @@ sed -i 's/ -dirty//g' "$KERNEL_WORKSPACE/build/kernel/kleaf/workspace_status_sta
 cd "$KERNEL_WORKSPACE" || exit 1
 find . -type d > "$OLD_DIR/kernel_directory_structure.txt"
 
-# 设置 KernelSU
+# 设置 KernelSU next
 cd "$KERNEL_WORKSPACE" || exit 1
-curl -LSs "https://raw.githubusercontent.com/pluto-xm/SukiSU-Ultra/refs/heads/main/kernel/setup.sh" | bash -s main
+curl -LSs "https://raw.githubusercontent.com/pluto-xm/KernelSU-Next/refs/heads/next/kernel/setup.sh" | bash - 
 cd KernelSU || exit 1
 git revert -m 1 "$(git log --grep="remove devpts hook" --pretty=format:"%H")" -n
 KSU_VERSION=$(expr "$(git rev-list --count HEAD)" + 10200)
